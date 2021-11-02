@@ -175,9 +175,6 @@ class ActivateIFTTT(APIView):
 class DogDetail(APIView):
    permission_classes = (AllowAny,)
    def get(self, request, pk, format=None):
-        #handles the read operation for a single object
-      #/api/dogs/[pk]
-      # the url file is going to route request to the method, serialize it and send it back
       try:
          dog = Dog.objects.get(pk=pk)
          serializer = DogSerializer(dog)
@@ -186,7 +183,6 @@ class DogDetail(APIView):
          raise Http404
 
    def put(self, request, pk, format=None):
-      #/api/dogs/[pk] http put request
       try:
          dog = Dog.objects.get(pk=pk)
          serializer = DogSerializer(dog, data=request.data)
@@ -206,7 +202,7 @@ class DogDetail(APIView):
          raise Http404
 
 class DogList(APIView):
-   def get(self, request, format=None): #handles the read operation for a list of objects
+   def get(self, request, format=None):
       dog = Dog.objects.all()
       serializer = DogSerializer(dog, many=True)
       return Response(serializer.data)
@@ -248,7 +244,7 @@ class BreedDetail(APIView):
          raise Http404
 
 class BreedList(APIView):
-   def get(self, request, format=None): #handles the read operation for a list of objects
+   def get(self, request, format=None): 
       breed = Breed.objects.all()
       serializer = BreedSerializer(breed, many=True)
       return Response(serializer.data)

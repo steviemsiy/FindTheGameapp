@@ -40,5 +40,4 @@ A functionality will be enabled to report users that are not using the site prop
 
 ## Diagrams
 ### Mock-Up
-## High Level Design
 ![Tooltip for visually disabled](./FtGMockup.jpg)
